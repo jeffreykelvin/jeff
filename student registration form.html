@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="script.js">
+</head>
+<body>
+    <style>
+:root {
+  --primary-color: #6C63FF;
+  --bg-color: #f0f2f5;
+  --white: #ffffff;
+  --input-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+animation: 2s a ease-in-out alternate-reverse infinite;
+}
+@keyframes a {
+    25%{
+        background-color: pink;
+    }
+    50%{
+        background-color: peachpuff;
+    }
+    75%{
+        background-color: skyblue;
+    }
+}
+
+.container {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px var(--shadow);
+  width: 350px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.input-group {
+  position: relative;
+  margin: 20px 0;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px 10px 10px 5px;
+  background: var(--input-bg);
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  transition: border-color .3s;
+  appearance: none;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-bottom-color: var(--primary-color);
+}
+
+.input-group label {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  color: #999;
+}
+
+.input-group select:focus ~ label,
+.input-group select:not([value=""]) ~ label {
+  top: -14px;
+  font-size: 12px;
+  color: var(--primary-color);
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+  top: -14px;
+  font-size: 12px;
+  color: var(--primary-color);
+}
+
+.input-group select {
+  padding-right: 30px;
+}
+
+.select-label {
+  top: -14px;
+  font-size: 12px;
+  color: #999;
+  pointer-events: none;
+  position: absolute;
+  left: 5px;
+  background: var(--white);
+  padding: 0 4px;
+  transform: translateY(-50%);
+}
+
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-color);
+  border: none;
+  color: var(--white);
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background: #574fed;
+  transform: translateY(-2px);
+}
+
+.message {
+  margin-top: 15px;
+  text-align: center;
+  color: red;
+  font-size: 14px;
+}
+
+
+    </style>
+  <div class="container">
+    <form id="registrationForm" class="form">
+      <h2>Student Registration</h2>
+
+      <div class="input-group">
+        <input type="text" id="fullName" name="fullName" required>
+        <label for="fullName">Full Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="email" name="email" required>
+        <label for="email">Email Address</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" name="password" required>
+        <label for="password">Password</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <label for="confirmPassword">Confirm Password</label>
+      </div>
+
+      <div class="input-group">
+        <label class="select-label" for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="" disabled selected>Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+          <option value="preferNot">Prefer not to say</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <input type="number" id="age" name="age" min="10" max="100" required>
+        <label for="age">Age</label>
+      </div>
+
+      <div class="input-group">
+        <label class="select-label" for="course">Course</label>
+        <select id="course" name="course" required>
+          <option value="" disabled selected>Select Course</option>
+          <option value="computerScience">Computer Science</option>
+          <option value="business">Business Administration</option>
+          <option value="engineering">Engineering</option>
+          <option value="arts">Arts & Humanities</option>
+          <option value="science">Pure Science</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn">Register</button>
+      <p class="message" id="message"></p>
+    </form>
+  </div>
+
+ 
+</body>
+</html>
